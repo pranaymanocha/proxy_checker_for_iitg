@@ -6,21 +6,8 @@ Step1
 
 Open .bashrc by doing vim ~/.bashrc. Add the following lines of code at the end of the file
 
-function proxy(){
-f=~/Proxy_list2.txt
-while IFS='' read -r line || [[ -n "$line" ]]; do
-#     echo "$line"
-    value=$(curl -sx http://$line --connect-timeout .025 --max-time 1 -L www.google.com/humans.txt)
-    # echo "$value"
-    if [[ "$value" ==  "Google is built by a large team of engineers"
-]]; then
-            echo "$line"
-    fi
-    value=""
-done < "$f"
-}
+Step 2
+Add the code avaiable in code.py at the end of the bashrc file.
 
-export -f proxy
-
-Step2
+Step3
 Do source ~/.bashrc and then on the terminal run proxy. It will show you the list of proxies one by one by trying out each of them one by one.
